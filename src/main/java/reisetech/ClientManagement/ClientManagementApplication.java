@@ -35,7 +35,6 @@ public class ClientManagementApplication {
     Integer idMax = repository.selectMaxId();
     if (idMax == null) {
       clientList.add("データなし");
-      return clientList;
     } else {
       for (int i = 1; i <= idMax; i++) {
         if (!(repository.selectById(i) == null)) {
@@ -43,8 +42,8 @@ public class ClientManagementApplication {
           clientList.add(client.getName() + "：" + client.getAge() + "歳");
         }
       }
-      return clientList;
     }
+    return clientList;
   }
 
   @PostMapping("/client")
