@@ -1,5 +1,7 @@
 package reisetech.ClientManagement;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +27,14 @@ public class ClientManagementApplication {
   public String readClient(@RequestParam String name) {
     Client client = repository.selectByName(name);
     return client.getName() + "　" + client.getAge() + "歳";
+  }
+
+  @GetMapping("/clientList")
+  public List<String> readAllClients() {
+    List<Client> clients = repository.selectAllClients();
+    return clients.stream()
+        .map(client -> client.getName() + " " + client.getAge() + "歳")
+        .collect(Collectors.toList());
   }
 
   @PostMapping("/client")
