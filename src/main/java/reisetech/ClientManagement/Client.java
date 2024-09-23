@@ -1,14 +1,8 @@
 package reisetech.ClientManagement;
 
 public class Client {
-
-  private int id;
   private String name;
   private int age;
-
-  public int getId() {
-    return id;
-  }
 
   public String getName() {
     return name;

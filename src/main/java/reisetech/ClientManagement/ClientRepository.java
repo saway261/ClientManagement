@@ -12,13 +12,7 @@ public interface ClientRepository {
   @Select("SELECT * FROM client WHERE name = #{name}")
   Client selectByName(String name);
 
-  @Select("SELECT MAX(id) FROM client")
-  Integer selectMaxId();
-
-  @Select("SELECT * FROM client WHERE id = #{id}")
-  Client selectById(int id);
-
-  @Insert("INSERT INTO client (name, age) VALUES (#{name}, #{age})")
+  @Insert("INSERT client values(#{name}, #{age})")
   void createClient(String name, int age);
 
   @Update("UPDATE client SET age = #{age} WHERE name = #{name}")
