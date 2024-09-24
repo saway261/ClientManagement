@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ClientRepository {
 
-  @Select("SELECT * FROM client WHERE name = #{name}")
+  @Select("SELECT name, age FROM client WHERE name = #{name}")
   Client selectByName(String name);
 
   @Select("SELECT name, age FROM client")
